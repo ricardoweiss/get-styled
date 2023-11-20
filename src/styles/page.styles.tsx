@@ -28,29 +28,24 @@ export const TitleContainer = styled.div`
   flex-direction: row;
   flex: 1;
   width: 100%;
-  margin-top: 3rem;
-`;
-
-export const Title = styled.h1`
-  font-size: ${text.h1};
-  font-weight: ${fontWeights.bold};
-  color: ${colors.riverGreen};
-  margin-right: 1rem;
-`;
-
-export const Subtitle = styled.h2`
-  font-size: ${text.h2};
-  font-weight: ${fontWeights.bold};
-`;
-
-export const TermsAndConditions = styled.p`
-  font-size: ${text.paragraph};
-  margin-top: 3rem;
+  margin-top: 2rem;
 `;
 
 export const Description = styled.p`
   font-size: ${text.paragraph};
+  margin-top: 2rem;
+  color: ${colors.riverGreen};
+`;
+
+export const SelectConversionRow = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
   margin-top: 3rem;
+  color: ${colors.white};
 `;
 
 export const ConvertTextArea = styled.textarea`
@@ -76,3 +71,34 @@ export const ConvertButton = styled.button`
   margin-top: 2rem;
 `;
 
+export const TermsAndConditions = styled.p`
+  font-size: ${text.paragraph};
+  margin-top: 2.5rem;
+`;
+
+export const Title = styled.h1`
+  font-size: ${text.h1};
+  font-weight: ${fontWeights.bold};
+  color: ${colors.riverGreen};
+  margin-right: 1rem;
+`;
+
+export const Subtitle = styled.h2`
+  font-size: ${text.h2};
+  font-weight: ${fontWeights.bold};
+`;
+
+export const StyledSelect = styled.select`
+  background-color: transparent;
+  border-bottom: 1.5px solid ${colors.gray};
+  cursor: pointer;
+  margin: 0 1rem;
+  color: ${colors.white};
+  option {
+    cursor: pointer;
+    background-color: ${colors.black};
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+  }
+`;
