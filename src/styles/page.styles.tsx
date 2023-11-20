@@ -18,8 +18,9 @@ export const ConvertSection = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  max-width: 50rem;
+  max-width: 70rem;
 `;
+
 
 export const TitleContainer = styled.div`
   display: flex;
@@ -48,14 +49,10 @@ export const SelectConversionRow = styled.div`
   color: ${colors.white};
 `;
 
-export const ConvertTextArea = styled.textarea`
+export const TextAreaRow = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  padding: 0.5rem;
-  font-size: ${text.paragraph};
-  color: ${colors.white};
-  background-color: ${colors.lightBlack};
-  border-radius: 0.25rem;
-  resize: vertical;
   margin-top: 3rem;
 `;
 
@@ -68,7 +65,7 @@ export const ConvertButton = styled.button`
   background-color: ${colors.riverGreen};
   border-radius: 0.25rem;
   border: none;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export const TermsAndConditions = styled.p`
@@ -102,3 +99,30 @@ export const StyledSelect = styled.select`
     padding: 0.5rem;
   }
 `;
+
+export const ConvertTextArea = styled.textarea`
+  width: 100%;
+  padding: 0.5rem;
+  font-size: ${text.paragraph};
+  color: ${colors.white};
+  background-color: ${colors.lightBlack};
+  border-radius: 0.25rem;
+  resize: vertical;
+  height: 12rem;
+`;
+
+export const ResultTextArea = styled(ConvertTextArea)`
+  height: 15.5rem;
+`;
+
+export const TextAreaBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const Spacing = styled.div`
+  width: 2rem;
+  height: 2rem;
+`;
+

@@ -6,11 +6,11 @@ import {
   ConvertSection,
   ConvertTextArea,
   Description,
-  Main,
-  SelectConversionRow,
+  Main, ResultTextArea,
+  SelectConversionRow, Spacing,
   StyledSelect,
   Subtitle,
-  TermsAndConditions,
+  TermsAndConditions, TextAreaBlock, TextAreaRow,
   Title,
   TitleContainer
 } from '@/styles/page.styles';
@@ -76,13 +76,23 @@ export default function Home() {
             <option value="bootstrap">Bootstrap</option>
           </StyledSelect>
         </SelectConversionRow>
-        <ConvertTextArea
-          placeholder="Paste your code here"
-          rows={8}
-        />
-        <ConvertButton>
-          Start translating
-        </ConvertButton>
+        <TextAreaRow>
+          <TextAreaBlock>
+            <ConvertTextArea
+              placeholder="Paste your code here"
+            />
+            <ConvertButton>
+              Start translating
+            </ConvertButton>
+          </TextAreaBlock>
+          <Spacing/>
+          <TextAreaBlock>
+            <ResultTextArea
+              placeholder="Results will appear here"
+              disabled
+            />
+          </TextAreaBlock>
+        </TextAreaRow>
         <TermsAndConditions>
           By using this service you agree to our <b>Terms and Conditions</b>
         </TermsAndConditions>
