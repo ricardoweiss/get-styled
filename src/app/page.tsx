@@ -7,11 +7,16 @@ import {
   ConvertSection,
   ConvertTextArea,
   Description,
-  Main, ResultTextArea, RevertButton,
-  SelectConversionRow, Spacing,
-  StyledSelect,
+  Main,
+  ResultTextArea,
+  RevertButton,
+  SelectConversionRow,
+  Spacing,
+  StyledSelect, StyledSyntaxHighlighter,
   Subtitle,
-  TermsAndConditions, TextAreaBlock, TextAreaRow,
+  TermsAndConditions,
+  TextAreaBlock,
+  TextAreaRow,
   Title,
   TitleContainer
 } from '@/styles/page.styles';
@@ -20,10 +25,12 @@ import StyledComponentsLogo from '@/assets/styled-components-logo.png';
 import bootstrapLogo from '@/assets/bootstrap-logo.png';
 import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
 import {ArrowsClockwise} from '@phosphor-icons/react';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export default function Home() {
   const [from, setFrom] = useState('tailwind');
   const [to, setTo] = useState('styledComponents');
+  const [codeString, setCodeString] = useState<null | string>(null);
 
   const imageFrom = from === 'tailwind' ? TailwindLogo : from === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
   const imageTo = to === 'tailwind' ? TailwindLogo : to === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
@@ -95,10 +102,9 @@ export default function Home() {
           </TextAreaBlock>
           <Spacing/>
           <TextAreaBlock>
-            <ResultTextArea
-              placeholder="Results will appear here"
-              disabled
-            />
+            <StyledSyntaxHighlighter language="javascript" style={darcula}>
+              {codeString ? codeString : 'Your translated code will appear here'}
+            </StyledSyntaxHighlighter>
           </TextAreaBlock>
         </TextAreaRow>
         <TermsAndConditions>

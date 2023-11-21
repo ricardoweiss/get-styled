@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {colors, fontWeights, text} from '@/styles/styleGuide';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 export const Main = styled.main`
   display: flex;
@@ -128,10 +129,19 @@ export const ResultTextArea = styled(ConvertTextArea)`
   height: 15.5rem;
 `;
 
+export const StyledSyntaxHighlighter = styled(SyntaxHighlighter)`
+  background-color: ${colors.lightBlack} !important;
+  min-height: 15.5rem;
+`;
+
 export const TextAreaBlock = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  textarea::placeholder {
+    color: ${colors.lightGray};
+    font-family: 'Cascadia Code', monospace;
+  }
 `;
 
 export const Spacing = styled.div`
