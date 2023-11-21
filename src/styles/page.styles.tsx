@@ -123,6 +123,7 @@ export const ConvertTextArea = styled.textarea`
   border-radius: 0.25rem;
   resize: vertical;
   height: 12rem;
+  font-family: 'Cascadia Code', monospace;
 `;
 
 export const ResultTextArea = styled(ConvertTextArea)`
