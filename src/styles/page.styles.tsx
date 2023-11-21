@@ -73,11 +73,14 @@ export const TermsAndConditions = styled.p`
   margin-top: 2.5rem;
 `;
 
+
 export const Title = styled.h1`
   font-size: ${text.h1};
   font-weight: ${fontWeights.bold};
   color: ${colors.riverGreen};
   margin-right: 1rem;
+  position: relative;
+  top: 0.15rem;
 `;
 
 export const Subtitle = styled.h2`

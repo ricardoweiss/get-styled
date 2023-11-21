@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image'
+import { AdBlockDetectedWrapper } from "adblock-detect-react";
 import {
   ConvertButton,
   ConvertSection,
@@ -14,10 +15,10 @@ import {
   Title,
   TitleContainer
 } from '@/styles/page.styles';
-
 import TailwindLogo from '@/assets/tailwind-logo.png';
 import StyledComponentsLogo from '@/assets/styled-components-logo.png';
 import bootstrapLogo from '@/assets/bootstrap-logo.png';
+import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
 
 export default function Home() {
   const [from, setFrom] = useState('tailwind');
@@ -29,7 +30,6 @@ export default function Home() {
   const handleTo = (value: string) => {
     setTo(value)
   };
-
   const handleFrom = (value: string) => {
     setFrom(value)
   };
@@ -39,14 +39,14 @@ export default function Home() {
       <ConvertSection>
         <TitleContainer>
           <Title>
-            Get Styled!
+            CSS Convertor
           </Title>
           <Subtitle>
-            The first CSS library translate tool
+            The first CSS library translate tool!
           </Subtitle>
         </TitleContainer>
         <Description>
-          Get Styled is a tool that allows you to translate CSS libraries to your favorite one.
+          CSS Convertor is an A.I. that allows you to translate CSS libraries to your favorite one.
         </Description>
         <SelectConversionRow>
           Translate from
@@ -96,6 +96,9 @@ export default function Home() {
         <TermsAndConditions>
           By using this service you agree to our <b>Terms and Conditions</b>
         </TermsAndConditions>
+        <AdBlockDetectedWrapper>
+          <AdBlockModal />
+        </AdBlockDetectedWrapper>
       </ConvertSection>
     </Main>
   )
