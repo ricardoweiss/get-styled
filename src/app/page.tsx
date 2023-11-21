@@ -7,7 +7,7 @@ import {
   ConvertSection,
   ConvertTextArea,
   Description,
-  Main, ResultTextArea,
+  Main, ResultTextArea, RevertButton,
   SelectConversionRow, Spacing,
   StyledSelect,
   Subtitle,
@@ -19,6 +19,7 @@ import TailwindLogo from '@/assets/tailwind-logo.png';
 import StyledComponentsLogo from '@/assets/styled-components-logo.png';
 import bootstrapLogo from '@/assets/bootstrap-logo.png';
 import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
+import {ArrowsClockwise} from '@phosphor-icons/react';
 
 export default function Home() {
   const [from, setFrom] = useState('tailwind');
@@ -57,7 +58,7 @@ export default function Home() {
             width={40}
             style={{marginLeft: '1rem'}}
           />
-          <StyledSelect name="from" id="from" onChange={(e) => handleFrom(e.target.value)}>
+          <StyledSelect value={from} name="from" id="from" onChange={(e) => handleFrom(e.target.value)}>
             <option value="tailwind">Tailwind</option>
             <option value="bootstrap">Bootstrap</option>
             <option value="styledComponents">Styled Components</option>
@@ -70,11 +71,18 @@ export default function Home() {
             width={40}
             style={{marginLeft: '1rem'}}
           />
-          <StyledSelect name="to" id="to" onChange={(e) => handleTo(e.target.value)}>
+          <StyledSelect value={to} name="to" id="to" onChange={(e) => handleTo(e.target.value)}>
             <option value="styledComponents">Styled Components</option>
             <option value="tailwind">Tailwind</option>
             <option value="bootstrap">Bootstrap</option>
           </StyledSelect>
+          <RevertButton onClick={() => {
+            const temp = from;
+            setFrom(to);
+            setTo(temp);
+          }}>
+            <ArrowsClockwise size={32} />
+          </RevertButton>
         </SelectConversionRow>
         <TextAreaRow>
           <TextAreaBlock>

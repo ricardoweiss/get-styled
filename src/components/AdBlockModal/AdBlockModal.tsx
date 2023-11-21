@@ -14,9 +14,11 @@ const AdBlockModal: React.FC = () => {
       <Title>AdBlock Detected!</Title>
       <Subtitle>Please remove the AdBlock before using the CSS Convertor</Subtitle>
       <RefreshButton onClick={refreshPage}>
-        <ArrowClockwise size={32} style={{
-          marginRight: '1rem'
-        }} color={colors.white} />
+        <ArrowClockwise
+          size={32}
+          style={{marginRight: '1rem'}}
+          color={colors.white}
+        />
         Refresh Page
       </RefreshButton>
     </Modal>

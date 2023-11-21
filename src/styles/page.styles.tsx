@@ -68,6 +68,16 @@ export const ConvertButton = styled.button`
   margin-top: 1rem;
 `;
 
+export const RevertButton = styled.button`
+  font-size: ${text.paragraph};
+  color: ${colors.riverGreen};
+  font-weight: ${fontWeights.bold};
+  border: none;
+  margin-left: 2rem;
+  position: relative;
+  top: 0.25rem;
+`;
+
 export const TermsAndConditions = styled.p`
   font-size: ${text.paragraph};
   margin-top: 2.5rem;
