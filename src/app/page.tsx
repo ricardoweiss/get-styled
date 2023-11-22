@@ -1,65 +1,119 @@
-"use client";
+'use client';
+import React, { useState } from 'react';
 import Image from 'next/image'
-import {useSubmitPrompt} from "@/hooks/useSubmitPrompt";
-import { useState } from "react";
+import { AdBlockDetectedWrapper } from "adblock-detect-react";
+import {
+  ConvertButton,
+  ConvertSection,
+  ConvertTextArea,
+  Description,
+  Main,
+  ResultTextArea,
+  RevertButton,
+  SelectConversionRow,
+  Spacing,
+  StyledSelect, StyledSyntaxHighlighter,
+  Subtitle,
+  TermsAndConditions,
+  TextAreaBlock,
+  TextAreaRow,
+  Title,
+  TitleContainer
+} from '@/styles/page.styles';
+import TailwindLogo from '@/assets/tailwind-logo.png';
+import StyledComponentsLogo from '@/assets/styled-components-logo.png';
+import bootstrapLogo from '@/assets/bootstrap-logo.png';
+import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
+import {ArrowsClockwise} from '@phosphor-icons/react';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export default function Home() {
-  const [prompt, setPrompt] = useState('')
-  const [result, setResult] = useState('')
-  const handleSubmit = useSubmitPrompt()
-  console.log(process.env.REACT_APP_OPENAI_API_KEY)
+  const [from, setFrom] = useState('tailwind');
+  const [to, setTo] = useState('styledComponents');
+  const [codeString, setCodeString] = useState<null | string>(null);
+
+  const imageFrom = from === 'tailwind' ? TailwindLogo : from === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
+  const imageTo = to === 'tailwind' ? TailwindLogo : to === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
+
+  const handleTo = (value: string) => {
+    setTo(value)
+  };
+  const handleFrom = (value: string) => {
+    setFrom(value)
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <Main>
+      <ConvertSection>
+        <TitleContainer>
+          <Title>
+            CSS Convertor
+          </Title>
+          <Subtitle>
+            The first CSS library translate tool!
+          </Subtitle>
+        </TitleContainer>
+        <Description>
+          CSS Convertor is an A.I. that allows you to translate CSS libraries to your favorite one.
+        </Description>
+        <SelectConversionRow>
+          Translate from
+          <Image
+            src={imageFrom}
+            alt={from}
+            height={40}
+            width={40}
+            style={{marginLeft: '1rem'}}
+          />
+          <StyledSelect value={from} name="from" id="from" onChange={(e) => handleFrom(e.target.value)}>
+            <option value="tailwind">Tailwind</option>
+            <option value="bootstrap">Bootstrap</option>
+            <option value="styledComponents">Styled Components</option>
+          </StyledSelect>
+          to
+          <Image
+            src={imageTo}
+            alt={to}
+            height={40}
+            width={40}
+            style={{marginLeft: '1rem'}}
+          />
+          <StyledSelect value={to} name="to" id="to" onChange={(e) => handleTo(e.target.value)}>
+            <option value="styledComponents">Styled Components</option>
+            <option value="tailwind">Tailwind</option>
+            <option value="bootstrap">Bootstrap</option>
+          </StyledSelect>
+          <RevertButton onClick={() => {
+            const temp = from;
+            setFrom(to);
+            setTo(temp);
+          }}>
+            <ArrowsClockwise size={32} />
+          </RevertButton>
+        </SelectConversionRow>
+        <TextAreaRow>
+          <TextAreaBlock>
+            <ConvertTextArea
+              placeholder="Paste your code here"
             />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-      <textarea className={'w-full h-56 mt-4'} value={prompt} onChange={(e) => setPrompt(e.target.value)} />
-      <button onClick={async () => {
-        const response = await handleSubmit(prompt)
-        // @ts-ignore
-        const res = await response.json()
-        setResult(res.candidates?.[0]?.output)
-
-      }}>submit{' '}
-        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span></button>
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-      </div>
-      <p className={'mt-10'}>{result}</p>
-    </main>
+            <ConvertButton>
+              Start translating
+            </ConvertButton>
+          </TextAreaBlock>
+          <Spacing/>
+          <TextAreaBlock>
+            <StyledSyntaxHighlighter language="javascript" style={darcula}>
+              {codeString ? codeString : 'Your translated code will appear here'}
+            </StyledSyntaxHighlighter>
+          </TextAreaBlock>
+        </TextAreaRow>
+        <TermsAndConditions>
+          By using this service you agree to our <b>Terms and Conditions</b>
+        </TermsAndConditions>
+        <AdBlockDetectedWrapper>
+          <AdBlockModal />
+        </AdBlockDetectedWrapper>
+      </ConvertSection>
+    </Main>
   )
 }
