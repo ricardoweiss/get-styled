@@ -57,7 +57,8 @@ export const TextAreaRow = styled.div`
   margin-top: 3rem;
 `;
 
-export const ConvertButton = styled.button`
+export const ConvertButton = styled.button<{loading?: boolean}>`
+  ${({loading}) => [`
   width: 100%;
   padding: 0.5rem;
   font-size: ${text.paragraph};
@@ -66,7 +67,8 @@ export const ConvertButton = styled.button`
   background-color: ${colors.riverGreen};
   border-radius: 0.25rem;
   border: none;
-  margin-top: 1rem;
+  margin-top: 1rem;`,
+  loading && `background-color: ${colors.gray};`]}
 `;
 
 export const RevertButton = styled.button`

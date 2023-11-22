@@ -26,10 +26,13 @@ import bootstrapLogo from '@/assets/bootstrap-logo.png';
 import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
 import {ArrowsClockwise} from '@phosphor-icons/react';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {useSubmitPrompt} from "@/hooks/useSubmitPrompt";
 
 export default function Home() {
   const [from, setFrom] = useState('tailwind');
   const [to, setTo] = useState('styledComponents');
+  const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
   const [codeString, setCodeString] = useState<null | string>(null);
 
   const imageFrom = from === 'tailwind' ? TailwindLogo : from === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
@@ -41,6 +44,21 @@ export default function Home() {
   const handleFrom = (value: string) => {
     setFrom(value)
   };
+
+  const getCodeResponse = useSubmitPrompt()
+
+  const convert = async () => {
+    setLoading(true)
+    try {
+      const res = await getCodeResponse(inputValue)
+      const result = await res.json()
+      setCodeString(result?.candidates[0]?.output)
+    } catch (e) {
+      console.log(e)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <Main>
@@ -94,9 +112,10 @@ export default function Home() {
         <TextAreaRow>
           <TextAreaBlock>
             <ConvertTextArea
+              onChange={(e) => setInputValue(e.target.value)}
               placeholder="Paste your code here"
             />
-            <ConvertButton>
+            <ConvertButton loading={loading} onClick={convert}>
               Start translating
             </ConvertButton>
           </TextAreaBlock>
