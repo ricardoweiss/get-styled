@@ -25,6 +25,7 @@ import StyledComponentsLogo from '@/assets/styled-components-logo.png';
 import bootstrapLogo from '@/assets/bootstrap-logo.png';
 import AdBlockModal from '@/components/AdBlockModal/AdBlockModal';
 import {ArrowsClockwise} from '@phosphor-icons/react';
+// @ts-expect-error
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {useSubmitPrompt} from "@/hooks/useSubmitPrompt";
 
