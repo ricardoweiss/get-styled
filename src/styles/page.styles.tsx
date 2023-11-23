@@ -84,6 +84,7 @@ export const RevertButton = styled.button`
 export const TermsAndConditions = styled.p`
   font-size: ${text.paragraph};
   margin-top: 2.5rem;
+  color: ${colors.white};
 `;
 
 
@@ -99,6 +100,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
   font-size: ${text.h2};
   font-weight: ${fontWeights.bold};
+  color: ${colors.white};
 `;
 
 export const StyledSelect = styled.select`
