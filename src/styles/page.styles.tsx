@@ -129,6 +129,21 @@ export const ConvertTextArea = styled.textarea`
   resize: vertical;
   height: 12rem;
   font-family: 'Cascadia Code', monospace;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${colors.gray};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.riverGreen};
+    border-radius: 0.25rem;
+    cursor: move;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${colors.leafGreen};
+  }
+  
 `;
 
 export const StyledSyntaxHighlighter = styled(SyntaxHighlighter)`
