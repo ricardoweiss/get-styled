@@ -54,7 +54,7 @@ export default function Home() {
       const result = await res.json()
       const codeWithoutFirstLine = result?.candidates[0]?.output?.split('\n').slice(1).join('\n')
       const code = codeWithoutFirstLine?.split('\n').slice(0, -1).join('\n')
-      setCodeString(codeWithoutLastLine)
+      setCodeString(code)
     } catch (e) {
       console.log(e)
     } finally {
