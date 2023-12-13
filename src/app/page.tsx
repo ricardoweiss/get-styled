@@ -66,6 +66,7 @@ export default function Home() {
     <Main>
       <ConvertSection>
         <TitleContainer>
+          <Image src="/logo.png" alt="logo" height={100} width={100}/>
           <Title>
             CSS Convertor
           </Title>

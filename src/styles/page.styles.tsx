@@ -9,7 +9,7 @@ export const Main = styled.main`
   flex-direction: column;
   flex: 1;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${colors.black};
 `;
 
@@ -20,6 +20,7 @@ export const ConvertSection = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 70rem;
+  padding-bottom: 2rem;
 `;
 
 
@@ -119,7 +120,7 @@ export const StyledSelect = styled.select`
 `;
 
 export const ConvertTextArea = styled.textarea`
-  width: 100%;
+  flex: 1;
   padding: 0.5rem;
   font-size: ${text.paragraph};
   color: ${colors.white};
@@ -128,21 +129,47 @@ export const ConvertTextArea = styled.textarea`
   resize: vertical;
   height: 12rem;
   font-family: 'Cascadia Code', monospace;
-`;
-
-export const ResultTextArea = styled(ConvertTextArea)`
-  height: 15.5rem;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${colors.gray};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.riverGreen};
+    border-radius: 0.25rem;
+    cursor: move;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${colors.leafGreen};
+  }
+  
 `;
 
 export const StyledSyntaxHighlighter = styled(SyntaxHighlighter)`
   background-color: ${colors.lightBlack} !important;
   min-height: 15.5rem;
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${colors.gray};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.riverGreen};
+    border-radius: 0.25rem;
+    cursor: move;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${colors.leafGreen};
+  }
 `;
 
 export const TextAreaBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   textarea::placeholder {
     color: ${colors.lightGray};
     font-family: 'Cascadia Code', monospace;
@@ -150,7 +177,7 @@ export const TextAreaBlock = styled.div`
 `;
 
 export const Spacing = styled.div`
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
 `;
 

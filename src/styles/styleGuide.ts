@@ -12,7 +12,7 @@ export const colors = {
   white: '#FCFCFF',
   deepBlue: '#3E54D3',
   shallowBlue: '#4F80E2',
-  riverGreen: '#15CDCA',
+  riverGreen: '#01FEFD',
   leafGreen: '#4FE0B6',
 };
 
