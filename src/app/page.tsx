@@ -51,10 +51,10 @@ export default function Home() {
     setLoading(true)
     try {
       const res = await getCodeResponse(inputValue)
-      const result = await res.json()
-      const codeWithoutFirstLine = result?.candidates[0]?.output?.split('\n').slice(1).join('\n')
-      const code = codeWithoutFirstLine?.split('\n').slice(0, -1).join('\n')
-      setCodeString(code)
+      const parsed = await res.json()
+      console.log(parsed)
+      // const codeWithoutFirstLine = parsed.text?.split('\n').slice(1).join('\n')
+      setCodeString(parsed.text)
     } catch (e) {
       console.log(e)
     } finally {
