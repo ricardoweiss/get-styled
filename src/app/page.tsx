@@ -8,7 +8,6 @@ import {
   ConvertTextArea,
   Description,
   Main,
-  ResultTextArea,
   RevertButton,
   SelectConversionRow,
   Spacing,
