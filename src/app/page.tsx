@@ -38,9 +38,15 @@ export default function Home() {
   const imageTo = to === 'tailwind' ? TailwindLogo : to === 'styledComponents' ? StyledComponentsLogo : bootstrapLogo;
 
   const handleTo = (value: string) => {
+    if (value === from) {
+      setFrom(to)
+    }
     setTo(value)
   };
   const handleFrom = (value: string) => {
+    if (value === to) {
+      setTo(from)
+    }
     setFrom(value)
   };
 
