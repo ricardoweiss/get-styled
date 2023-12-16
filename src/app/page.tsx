@@ -7,8 +7,7 @@ import {
   ConvertSection,
   ConvertTextArea,
   Description,
-  Main,
-  ResultTextArea,
+  Main, MobileWarning,
   RevertButton,
   SelectConversionRow,
   Spacing,
@@ -18,7 +17,7 @@ import {
   TextAreaBlock,
   TextAreaRow,
   Title,
-  TitleContainer
+  TitleContainer, WarningText
 } from '@/styles/page.styles';
 import TailwindLogo from '@/assets/tailwind-logo.png';
 import StyledComponentsLogo from '@/assets/styled-components-logo.png';
@@ -136,6 +135,11 @@ export default function Home() {
           <AdBlockModal />
         </AdBlockDetectedWrapper>
       </ConvertSection>
+      <MobileWarning>
+        <WarningText>
+          This website is not optimized for mobile devices, <span>please use a desktop browser.</span>
+        </WarningText>
+      </MobileWarning>
     </Main>
   )
 }

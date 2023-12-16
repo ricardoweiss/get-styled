@@ -19,8 +19,33 @@ export const ConvertSection = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  max-width: 70rem;
-  padding-bottom: 2rem;
+  max-width: 74rem;
+  padding: 0 2rem 2rem 2rem;
+  @media (max-width: 780px) {
+    display: none;
+  }
+`;
+
+export const MobileWarning = styled.div`
+  display: none;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  @media (max-width: 780px) {
+    display: flex;
+  }
+`;
+
+export const WarningText = styled.span`
+  max-width: 30rem;
+  color: ${colors.white};
+  font-size: ${text.h1};
+  text-align: center;
+  font-weight: ${fontWeights.bold};
+  span {
+    color: ${colors.riverGreen};
+  }
 `;
 
 
