@@ -124,7 +124,7 @@ export default function Home() {
               placeholder="Paste your code here"
             />
             <ConvertButton loading={loading} onClick={convert}>
-              Start translating
+              Start translating now
             </ConvertButton>
           </TextAreaBlock>
           <Spacing/>
