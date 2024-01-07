@@ -135,7 +135,7 @@ export default function Home() {
           </TextAreaBlock>
         </TextAreaRow>
         <TermsAndConditions>
-          By using this service you agree to our <b>Terms and Conditions</b>
+          By using this service you agree to our <a href={'/terms'}>Terms and Conditions</a>
         </TermsAndConditions>
         <AdBlockDetectedWrapper>
           <AdBlockModal />
