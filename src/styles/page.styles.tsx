@@ -109,8 +109,16 @@ export const RevertButton = styled.button`
 
 export const TermsAndConditions = styled.p`
   font-size: ${text.paragraph};
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   color: ${colors.white};
+  a {
+    color: ${colors.riverGreen};
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 
