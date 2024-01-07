@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import StyledComponentsRegistry from '@/lib/registry';
-import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <Head>
+    <head>
+    {process.env.NODE_ENV === 'production' && (
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4127168004839495"
               crossOrigin="anonymous"></script>
-    </Head>
+    )}
+      <title>
+        CSS Convertor
+      </title>
+    </head>
     <body className={inter.className}>
     <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
     </body>
