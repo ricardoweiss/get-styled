@@ -111,6 +111,7 @@ export const TermsAndConditions = styled.p`
   font-size: ${text.paragraph};
   margin-top: 3rem;
   color: ${colors.white};
+  
   a {
     color: ${colors.riverGreen};
     text-decoration: none;
